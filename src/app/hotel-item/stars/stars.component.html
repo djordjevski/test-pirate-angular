@@ -1,0 +1,13 @@
+<div class="stars">
+
+  <span class="stars__text">{{starsCount}} *</span>
+
+  <span *ngFor="let stars of numberToArray(starsCount)" class="star__full">
+      <fa name="star" aria-hidden="true"></fa>
+    </span>
+
+  <span *ngFor="let blanks of numberToArray(blanksCount)" class="star__blank">
+    <fa name="star-o" aria-hidden="true"></fa>
+  </span>
+
+</div>

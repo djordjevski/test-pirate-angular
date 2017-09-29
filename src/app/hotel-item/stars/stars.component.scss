@@ -1,0 +1,12 @@
+@import "../../shared/_mixinsAndVariables.scss";
+
+.stars {
+    @include breakpoint(_l) {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    @at-root .stars__text   { display: none; }
+    @at-root .star__full    { display:inline-block; color: #fb0; }
+    @at-root .star__blank   { display:inline-block; color: #ccc; }
+}

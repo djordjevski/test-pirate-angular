@@ -1,0 +1,10 @@
+<section [class]="itemClass">
+  <div class="review__icon">
+    <fa *ngIf="item.positive" name="plus"></fa>
+    <fa *ngIf="!item.positive" name="minus"></fa>
+  </div>
+  <div class="review__content">
+    <h4 class="review__name">{{item.name}}</h4>
+    <p class="review__comment">{{item.comment}}</p>
+  </div>
+</section>

@@ -1,0 +1,51 @@
+<article class="hotel-item" [id]="item.id">
+  <div class="hotel-item__content">
+
+    <!-- Hotel image -->
+    <div class="hotel-image" [style.background-image]="getCoverBgImage(item.images)">
+      <img [src]="getCoverImage(item.images)" alt="">
+    </div>
+
+    <div class="hotel-info">
+      <!-- Header = Name, Location, Rating -->
+      <header class="item-header">
+        <div class="item-header__main-info">
+          <h1 class="item-header__heading">{{item.name}}</h1>
+          <h2 class="item-header__subheading">{{item.city}} - {{item.country}}</h2>
+        </div>
+        <div class="item-header__rating">
+            <app-stars [starsCount]="item.stars" [max]="5" class="stars"></app-stars>
+        </div>
+      </header>
+
+      <!-- Description -->
+      <p class="description">{{item.description}}</p>
+
+      <!-- Footer = Price, Date, Load reviews button -->
+      <footer class="item-footer">
+        <div class="offer">
+          <p class="offer_price">{{item.price}} &euro;</p>
+          <p class="offer_date">{{formatDate(item.date_start)}} - {{formatDate(item.date_end)}}</p>
+        </div>
+        <div class="buttons">
+          <button 
+            class="btn"
+            [attr.data-id]="item.id"
+            (click)="toggleReviews($event)">
+            {{isReviewsDisplayed ? "Hide" : "Show"}}
+          </button>
+        </div>
+      </footer>
+
+    </div>
+    <!-- .hotel-info -->
+
+  </div>
+  <!-- .hotel-item__content -->
+
+  <div class="hotel-item__reviews" *ngIf="isReviewsDisplayed">
+      <app-review-item *ngFor="let item of reviews" [item]="item">
+      </app-review-item>
+  </div>
+
+</article>
